@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Screen</title>
+</head>
+<body>
+<div class="login" align="center">
+    <h1 style="text-align:center">Cashier Input Screen</h1>
+    <form action="{{ url_for('processpayment')}}" method="post">
+        <table>
+            <tr>
+                <th></th>
+                <th colspan="3">{% autoescape off %}{{ image }}{% endautoescape %}</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td><label for="drinktype">Drink:  </label></td>
+                <td colspan="3">
+                    <textarea>{% autoescape off %}{{ orderobj['drinktype'] + " - " + orderobj['drinksize']  }}{% endautoescape %}</textarea>
+                </td>
+            </tr>
+            <tr></tr>
+            <tr></tr>
+            <tr>
+                <td><label for="Order_ID">Order:  </label></td>
+                <td colspan="3">
+                    <textarea name="OrderID">{% autoescape off %}{{ orderobj['orderno'] }}{% endautoescape %}</textarea>
+                </td>
+            </tr>
+            <tr></tr>
+            <tr></tr>
+            <tr>
+                <td><label for="Amount">Amount:  </label></td>
+                <td colspan="3">
+                    <input name="Price" value="{{ orderobj['price'] }}" />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="Payment Card">Payment Card#  </label></td>
+                <td colspan="3">
+                    <input name="PaymentCard" value="{{ PymtCard }}" />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="Print Message">Print Message :  </label></td>
+                <td colspan="3">
+                    <input name="PrintMsg" value="{{ printmsg }}" />
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td colspan ="1">
+                    <button type="submit" class="btn btn-primary btn-block btn-large">Pay</button>
+                </td>
+                <td colspan="1">
+                    <button type="submit" class="btn btn-primary btn-block btn-large">Print Receipt</button>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+
+        </table>
+    </form>
+    <br>
+    <br>
+    <h2>
+        {{ prediction_text }}
+    </h2>
+
+</div>
+</body>
+</html>

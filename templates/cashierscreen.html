@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cashier Screen</title>
+</head>
+<body>
+<div class="login" align="center">
+    <h1 style="text-align:center">Cashier Input Screen</h1>
+    <form action="{{ url_for('takeorder')}}" method="post">
+        <table>
+            <tr>
+                <th></th>
+                <th colspan="3">{% autoescape off %}{{ image }}{% endautoescape %}</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td><label for="drinktype">Drink:  </label></td>
+                <td colspan="3">
+                    <select id="drinktype" name="drinktype", placeholder="drinktype", required="required">
+                        <option value="Select">Select</option>
+                        <option value="Pike Place Roast">Coffee Pike Place Roast</option>
+                        <option value="Green Tea Latte">Green Tea Latte</option>
+                        <option value="Caramel Frappuccino">Caramel Frappuccino</option>
+                        <option value="Caffe Latte">Caffe Latte</option>
+                    </select>
+                </td>
+            </tr>
+            <tr></tr>
+            <tr></tr>
+            <tr>
+                <td><label for="Size" colo>Size:  </label></td>
+                <td colspan="3">
+                    <select id="Size" name="Size" placeholder="Size", required="required">
+                        <option value="Select">Select</option>
+                        <option value="Tall">Tall</option>
+                        <option value="Grande">Grande</option>
+                        <option value="Venti">Venti</option>
+                    </select>
+                </td>
+            </tr>
+            <tr></tr>
+            <tr></tr>
+            <tr>
+                <td><label for="FCNo">Frequent Caffeinator #:  </label></td>
+                <td colspan="3">
+                    <input name="FCNo" value="{{ FCNo }}" />
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td colspan="1">
+                    <button type="submit" class="btn btn-primary btn-block btn-large">Submit Order</button>
+                </td>
+                <td colspan="1">
+
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+
+        </table>
+    </form>
+    <br>
+    <br>
+    <h2>
+        {{ prediction_text }}
+    </h2>
+    <h2>End of story</h2>
+
+</div>
+</body>
+</html>
